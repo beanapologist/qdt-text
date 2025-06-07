@@ -38,4 +38,22 @@ jobs:
           --image gcr.io/$PROJECT_ID/$SERVICE_NAME:${{ github.sha }} \
           --platform managed \
           --region $REGION \
-          --allow-unauthenticated 
+          --allow-unauthenticated \
+          --timeout 300 \
+          --min-instances 1 \
+          --max-instances 10 \
+          --port 8080 \
+          --memory 512Mi \
+          --cpu 1 \
+          --set-env-vars="PORT=8080"
+
+    - name: Tag Container for Docker Hub
+      run: docker tag qdt-api:latest gcr.io/hip-informatics-446103-u3/qdt-api:latest 
+
+    - name: Push Container to Docker Hub
+      run: docker push gcr.io/hip-informatics-446103-u3/qdt-api:latest 
+
+    - name: Test Container Locally
+      run: |
+        docker build -t qdt-api:latest .
+        docker run -p 8080:8080 qdt-api:latest 

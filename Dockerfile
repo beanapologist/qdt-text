@@ -10,8 +10,15 @@ RUN pip install 'uvicorn[standard]'
 # Copy the rest of the application
 COPY . .
 
+# Create a non-root user
+RUN useradd -m myuser
+USER myuser
+
+# The port will be set by Cloud Run
+ENV PORT=8080
+
 # Expose port 8080 for Cloud Run
 EXPOSE 8080
 
 # Command to run the application
-CMD ["uvicorn", "api:app", "--host", "0.0.0.0", "--port", "8080"] 
+CMD exec uvicorn api:app --host 0.0.0.0 --port ${PORT} 

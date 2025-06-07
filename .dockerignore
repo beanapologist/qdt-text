@@ -12,5 +12,4 @@ env/
 .git
 .gitignore
 README.md
-*.pth
 *.pkl 

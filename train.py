@@ -7,7 +7,7 @@ import numpy as np # type: ignore
 from sklearn.datasets import make_regression # type: ignore
 from sklearn.model_selection import train_test_split # type: ignore
 from sklearn.preprocessing import StandardScaler # type: ignore
-from qdt_model import QDTNetwork, QDTTrainer, QDT
+from qdt_model import TimeCrystalQDTNetwork, TimeCrystalQDTTrainer, QDT
 from visualization import create_epic_visualization, plot_predictions
 
 def main():
@@ -46,8 +46,8 @@ def main():
     print(f"Training: {len(X_train)}, Validation: {len(X_val)}, Test: {len(X_test)}")
 
     # Create and train model
-    model = QDTNetwork(input_dim=20, hidden_dims=[64, 128, 64], output_dim=1)
-    trainer = QDTTrainer(model)
+    model = TimeCrystalQDTNetwork(input_dim=20, hidden_dims=[64, 128, 64], output_dim=1)
+    trainer = TimeCrystalQDTTrainer(model)
 
     print(f"🧠 Model created with {sum(p.numel() for p in model.parameters()):,} parameters")
 
