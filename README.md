@@ -138,4 +138,32 @@ If you use this code in your research, please cite:
 
 - Quantum Duality Theory principles
 - PyTorch team for the amazing framework
-- The open-source community for inspiration and support 
+- The open-source community for inspiration and support
+
+## Deployment
+
+This project is automatically deployed to Google Cloud Run using GitHub Actions. The deployment process is triggered when changes are pushed to the main branch.
+
+### Deployment Process
+
+1. When code is pushed to the main branch, GitHub Actions automatically:
+   - Runs tests
+   - Builds a Docker container
+   - Deploys to Google Cloud Run
+
+2. The deployment uses the following configuration:
+   - Project ID: hip-informatics-446103-u3
+   - Service Name: qdt-text
+   - Region: us-central1
+
+### Local Testing
+
+You can test the deployment locally using the provided scripts:
+
+```bash
+# Build and run the container locally
+./build_local.sh
+
+# Test the API endpoints
+curl http://localhost:8080/health
+``` 
