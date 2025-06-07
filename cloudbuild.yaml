@@ -5,9 +5,8 @@ steps:
       - 'build'
       - '-t'
       - 'gcr.io/$PROJECT_ID/qdt-text:$COMMIT_SHA'
-      - '-f'
-      - 'Dockerfile'
       - '.'
+    dir: '.'
 
   # Push the container image to Container Registry
   - name: 'gcr.io/cloud-builders/docker'
