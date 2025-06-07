@@ -22,7 +22,7 @@ A cutting-edge text generation model that achieves exceptional performance throu
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/qdt-text.git
+git clone https://github.com/beanapologist/qdt-text.git
 cd qdt-text
 ```
 
@@ -126,11 +126,11 @@ If you use this code in your research, please cite:
 
 ```bibtex
 @software{qdt_text_generation,
-  author = {Your Name},
+  author = {Bean Apologist},
   title = {QDT-Enhanced Text Generation},
   year = {2024},
   publisher = {GitHub},
-  url = {https://github.com/yourusername/qdt-text}
+  url = {https://github.com/beanapologist/qdt-text}
 }
 ```
 
